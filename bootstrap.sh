@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -eou
+set -eu -o
 
 doas env groupsprog='id -Gn' FGREP='/bin/grep -F' EGREP='/bin/grep -E' TOUCH_FLAGS= \
 	./bootstrap/bootstrap --prefix /pkg --prefer-pkgsrc yes --mk-fragment - <<EOF

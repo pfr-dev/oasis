@@ -40,13 +40,61 @@ PATH: /usr/sbin
 ## ----------- ##
 
 configure:2492: checking for gcc
-configure:2522: result: no
-configure:2585: checking for cc
-configure:2632: result: no
-configure:2688: checking for cl.exe
-configure:2718: result: no
-configure:2742: error: in `/src/pkgsrc/work/bmake':
-configure:2744: error: no acceptable C compiler found in $PATH
+configure:2508: found /bin/gcc
+configure:2519: result: gcc
+configure:2748: checking for C compiler version
+configure:2757: gcc --version >&5
+gcc (GCC) 11.2.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+configure:2768: $? = 0
+configure:2757: gcc -v >&5
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/libexec/gcc/x86_64-linux-musl/11.2.0/lto-wrapper
+Target: x86_64-linux-musl
+Configured with: ./configure --build=x86_64-linux-musl --prefix= --libdir=/lib --disable-assembly --disable-decimal-float --disable-gnu-indirect-function --disable-libgomp --disable-libitm --disable-libmpx --disable-libmudflap --disable-libquadmath --disable-lto --disable-multilib --disable-nls --disable-plugin --disable-werror --enable-default-pie --enable-initfini-array --enable-languages=c,c++ --enable-libstdcxx-time=rt --enable-tls --with-sysroot=/ --with-build-sysroot=/ --with-debug-prefix-map=/src/ports/gcc/src= --with-native-system-header-dir=/include
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 11.2.0 (GCC) 
+configure:2768: $? = 0
+configure:2757: gcc -V >&5
+gcc: error: unrecognized command-line option '-V'
+gcc: fatal error: no input files
+compilation terminated.
+configure:2768: $? = 1
+configure:2757: gcc -qversion >&5
+gcc: error: unrecognized command-line option '-qversion'; did you mean '--version'?
+gcc: fatal error: no input files
+compilation terminated.
+configure:2768: $? = 1
+configure:2788: checking whether the C compiler works
+configure:2810: gcc    conftest.c  >&5
+gcc: fatal error: cannot execute 'as': execvp: No such file or directory
+compilation terminated.
+configure:2814: $? = 1
+configure:2852: result: no
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "bmake"
+| #define PACKAGE_TARNAME "bmake"
+| #define PACKAGE_VERSION "20200524"
+| #define PACKAGE_STRING "bmake 20200524"
+| #define PACKAGE_BUGREPORT "sjg@NetBSD.org"
+| #define PACKAGE_URL ""
+| /* end confdefs.h.  */
+| 
+| int
+| main ()
+| {
+| 
+|   ;
+|   return 0;
+| }
+configure:2857: error: in `/src/pkgsrc/work/bmake':
+configure:2859: error: C compiler cannot create executables
 See `config.log' for more details
 
 ## ---------------- ##
@@ -71,12 +119,13 @@ ac_cv_env_host_alias_set=
 ac_cv_env_host_alias_value=
 ac_cv_env_target_alias_set=
 ac_cv_env_target_alias_value=
+ac_cv_prog_ac_ct_CC=gcc
 
 ## ----------------- ##
 ## Output variables. ##
 ## ----------------- ##
 
-CC=''
+CC='gcc'
 CFLAGS=''
 CPP=''
 CPPFLAGS=''
@@ -106,7 +155,7 @@ PACKAGE_VERSION='20200524'
 PATH_SEPARATOR=':'
 SHELL='/bin/sh'
 _MAKE_VERSION='20200524'
-ac_ct_CC=''
+ac_ct_CC='gcc'
 ac_exe_suffix=''
 bindir='${exec_prefix}/bin'
 bmake_path_max=''
@@ -156,4 +205,4 @@ use_meta='yes'
 #define PACKAGE_BUGREPORT "sjg@NetBSD.org"
 #define PACKAGE_URL ""
 
-configure: exit 1
+configure: exit 77
